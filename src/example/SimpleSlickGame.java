@@ -25,6 +25,7 @@ public class SimpleSlickGame extends BasicGame
 	{
 		g.drawString("Hello World!", 250, 200);
 		g.drawString("Hello world 2", 250, 210);
+		g.drawString("Hello world 3", 250, 250);
 	}
 
 	public static void main(String[] args)

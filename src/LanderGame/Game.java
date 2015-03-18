@@ -19,6 +19,10 @@ public class Game extends BasicGame {
 		
 		g.drawString("Test", 250, 200);
 		p.render(gc,g);
+		
+		g.drawString("Rotation:" + p.getRotation(),10 , 30);
+		g.drawString("Acceleration: " + p.getAcceleration(), 10, 60);
+		g.drawString("Thrust: " + p.getThrust(), 10, 90);
 	}
 
 	@Override

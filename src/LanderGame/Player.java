@@ -60,8 +60,8 @@ public class Player {
 			//TODO Cleanup braking
 			float x = velocity.x;
 			float y = velocity.y;
-			x += (0 - x) * 0.003f;
-			y += (0 - y) * 0.003f;
+			x += (0 - x) * 0.003f * delta;
+			y += (0 - y) * 0.003f * delta;
 			velocity = new Vector2f(x,y);
 		}
 		

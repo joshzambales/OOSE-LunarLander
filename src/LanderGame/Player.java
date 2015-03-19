@@ -8,12 +8,28 @@ import org.newdawn.slick.geom.*;
  * @author Frans Larsen
  */
 public class Player {
+	// Configuration
 	public float MAX_THRUST = 0.0025f; // Maximum allowed thrust speed (Not to be confused with velocity)
 	
+	// Physics, Movement
 	private Vector2f position;		// x,y ships position in space
 	private Vector2f velocity;	// x,y ships acceleration direction
 	private float rotation;			// current rotation of ship
 	private float thrust;			// Force being added to the ships forward vector relative to its rotation
+	
+	// Properties
+	private Image imgShip;
+	private Image imgThrust;
+	
+	/**
+	 * Constructor for player, which handles the initial of Position, acceleration, rotation & thrust
+	 */
+	Player() {
+		position = new Vector2f(0,0);
+		velocity = new Vector2f(0,0);		
+		rotation = 0;
+		thrust = 0;
+	}
 	
 	/**
 	 * Constructor for player, which handles the initial of Position, acceleration, rotation & thrust
@@ -36,9 +52,9 @@ public class Player {
 		Input key = gc.getInput();
 		
 		if(key.isKeyDown(Input.KEY_W)) {
-			thrust += (MAX_THRUST - thrust) * 0.0001;
+			thrust += (MAX_THRUST - thrust) * 0.0001 * delta;
 		} else {
-			thrust += (0 - thrust) * 0.01f;
+			thrust += (0 - thrust) * 0.01f * delta;
 		}
 		
 		//TODO Add break using KEY_S
@@ -102,7 +118,7 @@ public class Player {
 	 * Returns the ships acceleration
 	 * @return
 	 */
-	public float getAcceleration() {
+	public float getVelocity() {
 		//FIXME I think this is wrong?
 		return (float) Math.sqrt(Math.pow(Math.cos(velocity.x), 2) + Math.pow(Math.sin(velocity.y), 2));
 	}

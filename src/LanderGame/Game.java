@@ -20,9 +20,9 @@ public class Game extends BasicGame {
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		player.render(gc,g);
 		
-		g.drawString("Rotation:" + player.getRotation(),10 , 30);
-		g.drawString("Acceleration: " + player.getVelocity(), 10, 60);
-		g.drawString("Thrust: " + player.getThrust(), 10, 90);
+		g.drawString("Rotation:" + player.getRotation() + " Rad",10 , 30);
+		g.drawString("Velocity: " + player.getVelocity() + " pix/ms", 10, 60);
+		g.drawString("Thrust: " + player.getThrust() + " pix/ms", 10, 90);
 	}
 
 	@Override

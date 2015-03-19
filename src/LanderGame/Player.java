@@ -13,13 +13,13 @@ public class Player {
 	
 	// Physics, Movement
 	private Vector2f position;		// x,y ships position in space
-	private Vector2f velocity;	// x,y ships acceleration direction
+	private Vector2f velocity;		// x,y ships acceleration direction
 	private float rotation;			// current rotation of ship
 	private float thrust;			// Force being added to the ships forward vector relative to its rotation
 	
 	// Properties
-	private Image imgShip;
-	private Image imgThrust;
+	private Image texShip;			// Image/texture for Ship
+	private Image texThrust;		// Image/texture for thrust flame
 	
 	/**
 	 * Constructor for player, which handles the initial of Position, acceleration, rotation & thrust
@@ -41,7 +41,7 @@ public class Player {
 		rotation = 0;
 		thrust = 0;
 	}
-	
+
 	/**
 	 * Updates the players position, acceleration using gameinputs
 	 * @param gc GameContainer 
@@ -56,14 +56,24 @@ public class Player {
 		} else {
 			thrust += (0 - thrust) * 0.01f * delta;
 		}
-		
-		//TODO Add break using KEY_S
+		if(key.isKeyDown(Input.KEY_S)) {
+			//TODO Cleanup braking
+			float x = velocity.x;
+			float y = velocity.y;
+			x += (0 - x) * 0.003f;
+			y += (0 - y) * 0.003f;
+			velocity = new Vector2f(x,y);
+		}
 		
 		if(key.isKeyDown(Input.KEY_A)) {
 			rotation -= Math.PI/640 * delta;
+			
+			//texShip.setRotation((float) Math.toDegrees(rotation));
 		}
 		if(key.isKeyDown(Input.KEY_D)) {
 			rotation += Math.PI/640 * delta;
+			
+			//texShip.setRotation((float) Math.toDegrees(rotation));
 		}
 		
 		//TODO Add de-acceleration from UNKNOWN FORCES FROM SPACE
@@ -79,19 +89,18 @@ public class Player {
 	 * @throws SlickException throws any SlickException
 	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		//TODO Draw image and rotate image according to rotation vector
 		g.drawRect(position.x-5, position.y-5, 10, 10);
 		
 		// Debugging
 		g.setColor(Color.red);	
-		g.drawLine(position.x, position.y, position.x + (500*velocity.x), position.y + (500*velocity.y));
+		g.drawLine(position.x, position.y, position.x + (500 * velocity.x), position.y + (500 * velocity.y));
 		g.setColor(Color.cyan);
 		g.drawLine(position.x, position.y, position.x+(float)(20*Math.cos(rotation)), position.y+(float)(20*Math.sin(rotation)));
 		g.setColor(Color.white);
 	}
 	
 	/**
-	 * Adds a force to the ships acceleration
+	 * Adds a force to the ships velocity
 	 * @param v Is the vector of force to add
 	 */
 	public void addForce(Vector2f v) {
@@ -120,6 +129,6 @@ public class Player {
 	 */
 	public float getVelocity() {
 		//FIXME I think this is wrong?
-		return (float) Math.sqrt(Math.pow(Math.cos(velocity.x), 2) + Math.pow(Math.sin(velocity.y), 2));
+		return (float) Math.sqrt(Math.pow(velocity.x, 2) + Math.pow(velocity.y, 2));
 	}
 }

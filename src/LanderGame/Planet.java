@@ -51,6 +51,11 @@ public class Planet {
 
 	}
 	
+	public void gravity(){
+		
+		
+	}
+	
 //	public boolean hasLanded(Vector2f playerPos){
 //		boolean bool = false;
 //

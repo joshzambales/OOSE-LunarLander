@@ -123,6 +123,11 @@ public class Player {
 		return thrust;
 	}
 	
+	public Vector2f getPosition(){
+		return position;
+	}
+	
+	
 	/**
 	 * Returns the ships acceleration
 	 * @return

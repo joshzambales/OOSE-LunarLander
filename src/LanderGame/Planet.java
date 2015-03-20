@@ -11,7 +11,7 @@ import org.newdawn.slick.geom.*;
 public class Planet {
 
 	// Properties
-	private Vector2f location;		// x,y planets location in space
+	private Vector2f location;			// x,y planets location in space
 	private float gravity;				// Amount of gravity
 	private float gravityRange;			// Reach of gravity
 	private float size;					// Size of planet

@@ -74,10 +74,9 @@ public class Planet {
 	}
 	
 	
-	// TODO do the math!
-	public void gravity(){
-		gravity = this.size * 0.01f;
-		
+	
+	public float gravitationalForce(){
+		return size * 0.01f; // TODO do the math!	
 	}
 
 

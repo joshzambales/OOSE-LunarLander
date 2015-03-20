@@ -11,15 +11,18 @@ public class Player {
 	// Configuration
 	public float MAX_THRUST = 0.0025f; // Maximum allowed thrust speed (Not to be confused with velocity)
 	
-	// Physics, Movement
+	// Properties
 	private Vector2f position;		// x,y ships position in space
 	private Vector2f velocity;		// x,y ships acceleration direction
 	private float rotation;			// current rotation of ship
 	private float thrust;			// Force being added to the ships forward vector relative to its rotation
 	
-	// Properties
+	// Resources
 	private Image texShip;			// Image/texture for Ship
 	private Image texThrust;		// Image/texture for thrust flame
+	private Sound sfxCollision;		// Sound for collision with object	
+	private Sound sfxThrust;		// Sound for while using thrusters
+	
 	
 	/**
 	 * Constructor for player, which handles the initial of Position, acceleration, rotation & thrust
@@ -56,6 +59,7 @@ public class Player {
 		} else {
 			thrust += (0 - thrust) * 0.01f * delta;
 		}
+		
 		if(key.isKeyDown(Input.KEY_S)) {
 			//TODO Cleanup braking
 			float x = velocity.x;
@@ -70,6 +74,7 @@ public class Player {
 			
 			//texShip.setRotation((float) Math.toDegrees(rotation));
 		}
+		
 		if(key.isKeyDown(Input.KEY_D)) {
 			rotation += Math.PI/640 * delta;
 			

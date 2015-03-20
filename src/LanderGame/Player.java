@@ -13,7 +13,7 @@ public class Player {
 	
 	// Properties
 	private Vector2f position;		// x,y ships position in space
-	private Vector2f velocity;		// x,y ships acceleration direction
+	 Vector2f velocity;		// x,y ships acceleration direction
 	private float rotation;			// current rotation of ship
 	private float thrust;			// Force being added to the ships forward vector relative to its rotation
 	
@@ -102,6 +102,7 @@ public class Player {
 		g.setColor(Color.cyan);
 		g.drawLine(position.x, position.y, position.x+(float)(20*Math.cos(rotation)), position.y+(float)(20*Math.sin(rotation)));
 		g.setColor(Color.white);
+		
 	}
 	
 	/**
@@ -138,7 +139,6 @@ public class Player {
 	 * @return
 	 */
 	public float getVelocity() {
-		//FIXME I think this is wrong?
 		return (float) Math.sqrt(Math.pow(velocity.x, 2) + Math.pow(velocity.y, 2));
 	}
 }

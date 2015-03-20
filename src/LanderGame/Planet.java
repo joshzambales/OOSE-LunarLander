@@ -74,9 +74,8 @@ public class Planet {
 	}
 	
 	
-	
 	public float gravitationalForce(){
-		return size * 0.01f; // TODO do the math!	
+		return size * 0.00000045f; // TODO do the math!	
 	}
 
 
@@ -88,18 +87,5 @@ public class Planet {
 	public void setGravityRange(float gravityRange) {
 		this.gravityRange = gravityRange;
 	}
-
-
-	
-//	public boolean hasLanded(Vector2f playerPos){
-//		boolean bool = false;
-//
-//		if (playerPos.sub(location) == 0){
-//		bool = true;
-//		}
-//		return bool;
-//		
-//		
-//	}
 	
 }

@@ -28,6 +28,7 @@ public class Planet {
 	 * Constructor for planet, which handles the initial of Position of a planet
 	 * @param pos Position where the planet should be initialised
 	 */
+	
 	Planet(Vector2f pos, int size, float gravity, float gravityRange, int resource){
 		location = pos;
 		this.size = size;
@@ -36,21 +37,37 @@ public class Planet {
 		this.gravityRange = gravityRange + size;
 	}
 	
-	
+	/**
+	 * Updates the planet position, acceleration using gameinputs
+	 * @param gc GameContainer 
+	 * @param delta Delta frame time
+	 * @throws SlickException throws any SlickException
+	 */
 	public void update(GameContainer gc, int delta) throws SlickException {
 		
 	}
 	
 	
-	
+	/**
+	 * Returns the position of the planet
+	 * @return
+	 */
 	public Vector2f getPos(){
 		return location;
 	}
 	
+	/**
+	 * Returns the number of resources of the planet
+	 * @return
+	 */
 	public int getPlanetRes(){
 		return resource;
 	}
 	
+	/**
+	 * Sets the number of resources of the planet
+	 * @param number of resources the planet should have from start
+	 */
 	public void setPlanetRes(int res){
 		if(res < 0){
 			res = 0;
@@ -58,7 +75,12 @@ public class Planet {
 		resource = res;
 	}
 	
-
+	/**
+	 * Renders the ship for the planet, including sprites, particles, etc.
+	 * @param gc GameContainer 
+	 * @param delta Delta frame time
+	 * @throws SlickException throws any SlickException
+	 */
 	
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		// debugging 
@@ -73,17 +95,26 @@ public class Planet {
 
 	}
 	
-	
+	/**
+	 * Returns the GravitationalForce of planet
+	 * @return
+	 */
 	public float gravitationalForce(){
 		return size * 0.00000045f; // TODO do the math!	
 	}
 
-
+	/**
+	 * Returns the Gravity range of planet
+	 * @return
+	 */
 	public float getGravityRange() {
 		return gravityRange/2;
 	}
 
-
+	/**
+	 * Sets the range of gravity influence of the planet
+	 * @param range of gravity influence of the planet
+	 */
 	public void setGravityRange(float gravityRange) {
 		this.gravityRange = gravityRange;
 	}

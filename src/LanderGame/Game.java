@@ -60,6 +60,11 @@ public class Game extends BasicGame {
 	
 			
 		}
+		
+		if (player.intersects(planet)){
+			
+		}
+
 	}
 	
 

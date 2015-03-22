@@ -8,7 +8,7 @@ import org.newdawn.slick.geom.*;
  * @author Jonathan Aardestrup
  */
 
-public class Planet {
+public class Planet extends Circle {
 
 	// Properties
 	private Vector2f location;			// x,y planets location in space
@@ -23,6 +23,10 @@ public class Planet {
 
 	// Debug
 	public Color color = Color.green;
+	
+	Planet(){
+		
+	}
 	
 	/**
 	 * Constructor for planet, which handles the initial of Position of a planet
@@ -118,5 +122,6 @@ public class Planet {
 	public void setGravityRange(float gravityRange) {
 		this.gravityRange = gravityRange;
 	}
+	
 	
 }

@@ -7,7 +7,7 @@ import org.newdawn.slick.geom.*;
  * The player spaceship which moves around the world, in which the user controls.
  * @author Frans Larsen
  */
-public class Player {
+public class Player extends Rectangle{
 	// Configuration
 	public float MAX_THRUST = 0.0025f; // Maximum allowed thrust speed (Not to be confused with velocity)
 	
@@ -85,6 +85,7 @@ public class Player {
 		
 		velocity.add(new Vector2f(thrust * (float)Math.cos(rotation),thrust * (float)Math.sin(rotation)));
 		position.add(velocity);
+		
 	}
 	
 	/**

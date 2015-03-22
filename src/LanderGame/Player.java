@@ -23,22 +23,13 @@ public class Player extends Rectangle{
 	private Sound sfxCollision;		// Sound for collision with object	
 	private Sound sfxThrust;		// Sound for while using thrusters
 	
-	
-	/**
-	 * Constructor for player, which handles the initial of Position, acceleration, rotation & thrust
-	 */
-	Player() {
-		position = new Vector2f(0,0);
-		velocity = new Vector2f(0,0);		
-		rotation = 0;
-		thrust = 0;
-	}
-	
 	/**
 	 * Constructor for player, which handles the initial of Position, acceleration, rotation & thrust
 	 * @param pos Position where the player should be initialised
 	 */
 	Player(Vector2f pos) {
+		super(pos.x, pos.y, 10, 10);
+		
 		position = pos;
 		velocity = new Vector2f(0,0);		
 		rotation = 0;

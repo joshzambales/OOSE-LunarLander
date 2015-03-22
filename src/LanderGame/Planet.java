@@ -24,16 +24,14 @@ public class Planet extends Circle {
 	// Debug
 	public Color color = Color.green;
 	
-	Planet(){
-		
-	}
-	
 	/**
 	 * Constructor for planet, which handles the initial of Position of a planet
 	 * @param pos Position where the planet should be initialised
 	 */
 	
 	Planet(Vector2f pos, int size, float gravity, float gravityRange, int resource){
+		super(pos.x, pos.y, size);
+		
 		location = pos;
 		this.size = size;
 		this.resource = resource;	

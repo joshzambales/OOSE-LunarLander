@@ -35,7 +35,8 @@ public class Game extends BasicGame {
 		g.drawLine(player.getPosition().x, 
 					player.getPosition().y, 
 					player.getPosition().x + (player.getVelocity()*getPullDirection().x*5000000),
-					player.getPosition().y + (player.getVelocity()*getPullDirection().y*5000000)); //Gravitational direction
+					player.getPosition().y + (player.getVelocity()*getPullDirection().y*5000000)
+		); //Gravitational direction
 		
 		
 	}

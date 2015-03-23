@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>3</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>186</y>
-      <w>96</w>
-      <h>57</h>
+      <x>1045</x>
+      <y>341</y>
+      <w>352</w>
+      <h>374</h>
     </coordinates>
     <panel_attributes>Player
 --
 + MAX_THRUST: float
+
 - texShip: Image
+
 - position: Vector2f
 - acceleration: Vector2f
 - rotation: float
 - thrust: float
 - fuel: float
+- money: int
 --
 + Player(position: Vector2f)
 + update(gc: GameContainer, delta: int): void
 + render(gc: GameContainer, Graphics: g): void
 + getPosition(): Vector2f
-+ addForce(force: Vector2f)</panel_attributes>
++ addForce(force: Vector2f)
++ mine(): Resource</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>168</y>
-      <w>30</w>
-      <h>9</h>
+      <x>1166</x>
+      <y>275</y>
+      <w>110</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>Rectangle</panel_attributes>
     <additional_attributes/>
@@ -40,10 +44,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>435</x>
-      <y>174</y>
-      <w>9</w>
-      <h>18</h>
+      <x>1210</x>
+      <y>297</y>
+      <w>33</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
@@ -51,20 +55,21 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>153</x>
-      <y>171</y>
-      <w>219</w>
-      <h>93</h>
+      <x>275</x>
+      <y>319</y>
+      <w>737</w>
+      <h>363</h>
     </coordinates>
     <panel_attributes>Planet
 --
+	- texPlanet: Image
 	- location : Vector2f			
 	- gravity: float				
 	- gravityRange: float		
-	- size : float					
-	- resource: int
-	
-	- textPlanet: Image
+	- size : float
+	- type: String
+	- amount: int
+	- enemies: List&lt;Enemy&gt;
 --
 + Planet(location : Vector2f,gravity: float, gravityRange: float, size : float, resource: int, textPlanet: Image) 
 + reduceResources(i: int): int
@@ -82,10 +87,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>246</x>
-      <y>150</y>
-      <w>30</w>
-      <h>9</h>
+      <x>550</x>
+      <y>253</y>
+      <w>110</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>Circle
 </panel_attributes>
@@ -94,12 +99,167 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>258</x>
-      <y>156</y>
-      <w>9</w>
-      <h>21</h>
+      <x>594</x>
+      <y>275</y>
+      <w>33</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>825</x>
+      <y>121</y>
+      <w>352</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>Game
+--
+- player: Player
+- planets: List&lt;Planet&gt;
+--
++ update(gc: GameContainer, delta: int): void
++ render(gc: GameContainer, Graphics: g): void
++ genSpace(seed: long): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>913</x>
+      <y>11</y>
+      <w>187</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Main
+--
+--
++ main(String[] args): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>66</y>
+      <w>33</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1067</x>
+      <y>242</y>
+      <w>33</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>1
+lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>957</x>
+      <y>242</y>
+      <w>55</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>0...*
+lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>627</x>
+      <y>671</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>495</x>
+      <y>737</y>
+      <w>297</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>HomePlanet
+--
+
+--
++ menuGui() : void
++ tankFuel() : void
++ heal() : void
++ upgrade(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>737</y>
+      <w>253</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>Enemy
+--
+- position: float
+- damage: float
+--
+Enemy(speed: float, damage: float)
++ update(gc: GameContainer, delta: int): void
++ render(gc: GameContainer, Graphics: g): void
++ damage(): void
++ move(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>671</y>
+      <w>55</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>0..*
+lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>143</x>
+      <y>649</y>
+      <w>110</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>Circle
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>671</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>

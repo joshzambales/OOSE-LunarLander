@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>160</y>
+      <w>320</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Player
+--
++ MAX_THRUST: float
+- texShip: Image
+- position: Vector2f
+- acceleration: Vector2f
+- rotation: float
+- thrust: float
+- fuel: float
+--
++ Player(position: Vector2f)
++ update(gc: GameContainer, delta: int): void
++ render(gc: GameContainer, Graphics: g): void
++ getPosition(): Vector2f
++ addForce(force: Vector2f)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>100</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Rectangle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>120</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+</diagram>

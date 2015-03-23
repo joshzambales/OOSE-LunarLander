@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>3</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>186</y>
-      <w>96</w>
-      <h>57</h>
+      <x>553</x>
+      <y>315</y>
+      <w>224</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Player
 --
@@ -29,10 +29,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>168</y>
-      <w>30</w>
-      <h>9</h>
+      <x>630</x>
+      <y>273</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Rectangle</panel_attributes>
     <additional_attributes/>
@@ -40,10 +40,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>435</x>
-      <y>174</y>
-      <w>9</w>
-      <h>18</h>
+      <x>658</x>
+      <y>287</y>
+      <w>21</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
@@ -51,10 +51,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>153</x>
-      <y>171</y>
-      <w>219</w>
-      <h>93</h>
+      <x>0</x>
+      <y>280</y>
+      <w>511</w>
+      <h>217</h>
     </coordinates>
     <panel_attributes>Planet
 --
@@ -82,10 +82,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>246</x>
-      <y>150</y>
-      <w>30</w>
-      <h>9</h>
+      <x>217</x>
+      <y>231</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Circle
 </panel_attributes>
@@ -94,12 +94,68 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>258</x>
-      <y>156</y>
-      <w>9</w>
-      <h>21</h>
+      <x>245</x>
+      <y>245</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>532</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>HomePlanet
+--
+
+--
++ menuGui() : void
++ tankFuel() : void
++ heal() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>532</y>
+      <w>147</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Resource
+--
+type : String
+textResource : Image
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>231</x>
+      <y>490</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>357</x>
+      <y>490</y>
+      <w>56</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
   </element>
 </diagram>

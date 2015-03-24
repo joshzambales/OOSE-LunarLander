@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>7</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1043</x>
-      <y>343</y>
+      <x>781</x>
+      <y>352</y>
       <w>352</w>
-      <h>374</h>
+      <h>341</h>
     </coordinates>
     <panel_attributes>Player
 --
 + MAX_THRUST: float
-
 - texShip: Image
-
 - position: Vector2f
 - acceleration: Vector2f
 - rotation: float
@@ -26,16 +24,19 @@
 + update(gc: GameContainer, delta: int): void
 + render(gc: GameContainer, Graphics: g): void
 + getPosition(): Vector2f
++ getSpeed(): float
++ getAcceleration(): Vector2f
 + addForce(force: Vector2f)
-+ mine(): Resource</panel_attributes>
++ mine(): int
++ upgrade(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1162</x>
-      <y>280</y>
-      <w>110</w>
+      <x>913</x>
+      <y>286</y>
+      <w>99</w>
       <h>33</h>
     </coordinates>
     <panel_attributes>Rectangle</panel_attributes>
@@ -44,21 +45,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1204</x>
-      <y>301</y>
-      <w>21</w>
-      <h>56</h>
+      <x>946</x>
+      <y>308</y>
+      <w>33</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>273</x>
-      <y>322</y>
+      <x>0</x>
+      <y>352</y>
       <w>737</w>
-      <h>363</h>
+      <h>374</h>
     </coordinates>
     <panel_attributes>Planet
 --
@@ -87,10 +88,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>546</x>
-      <y>259</y>
-      <w>110</w>
-      <h>33</h>
+      <x>297</x>
+      <y>275</y>
+      <w>165</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Circle
 </panel_attributes>
@@ -99,21 +100,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>588</x>
-      <y>280</y>
-      <w>21</w>
-      <h>56</h>
+      <x>363</x>
+      <y>308</y>
+      <w>33</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>819</x>
-      <y>126</y>
-      <w>352</w>
-      <h>132</h>
+      <x>484</x>
+      <y>143</y>
+      <w>341</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>Game
 --
@@ -128,10 +129,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>910</x>
-      <y>14</y>
-      <w>187</w>
-      <h>66</h>
+      <x>627</x>
+      <y>0</y>
+      <w>286</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Main
 --
@@ -142,57 +143,57 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>987</x>
-      <y>70</y>
-      <w>21</w>
-      <h>70</h>
+      <x>748</x>
+      <y>88</y>
+      <w>33</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1064</x>
-      <y>245</y>
-      <w>21</w>
-      <h>112</h>
+      <x>814</x>
+      <y>275</y>
+      <w>33</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>1
 lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>952</x>
-      <y>245</y>
-      <w>35</w>
-      <h>91</h>
+      <x>693</x>
+      <y>275</y>
+      <w>55</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>0...*
 lt=&lt;&lt;&lt;&lt;-
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>623</x>
-      <y>672</y>
-      <w>21</w>
-      <h>91</h>
+      <x>550</x>
+      <y>715</y>
+      <w>33</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>742</y>
-      <w>297</w>
-      <h>154</h>
+      <x>495</x>
+      <y>792</y>
+      <w>143</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>HomePlanet
 --
@@ -201,17 +202,16 @@ lt=&lt;&lt;&lt;&lt;-
 + menuGui() : void
 + tankFuel() : void
 + heal() : void
-+ upgrade(): void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>175</x>
-      <y>742</y>
-      <w>253</w>
-      <h>187</h>
+      <x>55</x>
+      <y>792</y>
+      <w>341</w>
+      <h>165</h>
     </coordinates>
     <panel_attributes>Enemy
 --
@@ -230,21 +230,21 @@ Enemy(speed: float, damage: float)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
-      <y>672</y>
-      <w>35</w>
-      <h>84</h>
+      <x>242</x>
+      <y>715</y>
+      <w>55</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>0..*
 lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
-      <y>651</y>
-      <w>110</w>
+      <x>33</x>
+      <y>737</y>
+      <w>66</w>
       <h>33</h>
     </coordinates>
     <panel_attributes>Circle
@@ -254,12 +254,12 @@ lt=&lt;&lt;&lt;&lt;-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>175</x>
-      <y>672</y>
-      <w>21</w>
-      <h>84</h>
+      <x>55</x>
+      <y>759</y>
+      <w>33</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
 </diagram>

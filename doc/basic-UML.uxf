@@ -35,7 +35,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>913</x>
-      <y>286</y>
+      <y>297</y>
       <w>99</w>
       <h>33</h>
     </coordinates>
@@ -46,12 +46,12 @@
     <id>Relation</id>
     <coordinates>
       <x>946</x>
-      <y>308</y>
+      <y>319</y>
       <w>33</w>
-      <h>66</h>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -79,19 +79,19 @@
 + getPos () : location
 + getPlanetRes() : resource
 + setPlanetres (res : int)
-+ gravitationalForce() : size * 0.00000045f
-+ getGravityRange () : gravityRange/2
-+ set gravityRange (gravityRange : float)
++ gravitationalForce() : size
++ getGravityRange () : gravityRange
++ setGravityRange (gravityRange : float)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>297</x>
-      <y>275</y>
-      <w>165</w>
-      <h>44</h>
+      <x>341</x>
+      <y>286</y>
+      <w>55</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>Circle
 </panel_attributes>
@@ -111,7 +111,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>484</x>
+      <x>572</x>
       <y>143</y>
       <w>341</w>
       <h>143</h>
@@ -121,6 +121,7 @@
 - player: Player
 - planets: List&lt;Planet&gt;
 --
++ Game()
 + update(gc: GameContainer, delta: int): void
 + render(gc: GameContainer, Graphics: g): void
 + genSpace(seed: long): void</panel_attributes>

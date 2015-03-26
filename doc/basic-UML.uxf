@@ -4,12 +4,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>781</x>
-      <y>352</y>
+      <x>946</x>
+      <y>319</y>
       <w>352</w>
-      <h>341</h>
+      <h>363</h>
     </coordinates>
-    <panel_attributes>Player
+    <panel_attributes>&lt;&lt;Rectangle&gt;&gt;
+Player
 --
 + MAX_THRUST: float
 - texShip: Image
@@ -34,34 +35,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>913</x>
-      <y>297</y>
-      <w>99</w>
-      <h>33</h>
-    </coordinates>
-    <panel_attributes>Rectangle</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>946</x>
+      <x>165</x>
       <y>319</y>
-      <w>33</w>
-      <h>55</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>352</y>
       <w>737</w>
       <h>374</h>
     </coordinates>
-    <panel_attributes>Planet
+    <panel_attributes>&lt;&lt;Circle&gt;&gt;
+Planet
 --
 	- texPlanet: Image
 	- location : Vector2f			
@@ -88,35 +68,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>341</x>
-      <y>286</y>
-      <w>55</w>
-      <h>33</h>
-    </coordinates>
-    <panel_attributes>Circle
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>363</x>
-      <y>308</y>
-      <w>33</w>
-      <h>66</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>572</x>
-      <y>143</y>
+      <x>737</x>
+      <y>99</y>
       <w>341</w>
-      <h>143</h>
+      <h>165</h>
     </coordinates>
-    <panel_attributes>Game
+    <panel_attributes>&lt;&lt;BasicGame&gt;&gt;
+Game
 --
 - player: Player
 - planets: List&lt;Planet&gt;
@@ -130,10 +88,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>627</x>
+      <x>792</x>
       <y>0</y>
       <w>286</w>
-      <h>99</h>
+      <h>66</h>
     </coordinates>
     <panel_attributes>Main
 --
@@ -144,59 +102,60 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>748</x>
-      <y>88</y>
+      <x>913</x>
+      <y>55</y>
       <w>33</w>
-      <h>77</h>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>814</x>
-      <y>275</y>
+      <x>979</x>
+      <y>253</y>
       <w>33</w>
-      <h>99</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>1
 lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>693</x>
-      <y>275</y>
+      <x>858</x>
+      <y>253</y>
       <w>55</w>
-      <h>99</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>0...*
 lt=&lt;&lt;&lt;&lt;-
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
-      <y>715</y>
+      <x>715</x>
+      <y>682</y>
       <w>33</w>
-      <h>99</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>495</x>
-      <y>792</y>
+      <x>660</x>
+      <y>748</y>
       <w>143</w>
-      <h>110</h>
+      <h>132</h>
     </coordinates>
-    <panel_attributes>HomePlanet
+    <panel_attributes>&lt;&lt;Planet&gt;&gt;
+HomePlanet
 --
 
 --
@@ -209,12 +168,13 @@ lt=&lt;&lt;&lt;&lt;-
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>55</x>
-      <y>792</y>
+      <x>220</x>
+      <y>748</y>
       <w>341</w>
-      <h>165</h>
+      <h>187</h>
     </coordinates>
-    <panel_attributes>Enemy
+    <panel_attributes>&lt;&lt;Circle&gt;
+Enemy
 --
 - position: float
 - damage: float
@@ -231,36 +191,13 @@ Enemy(speed: float, damage: float)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>242</x>
-      <y>715</y>
+      <x>407</x>
+      <y>682</y>
       <w>55</w>
-      <h>99</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>0..*
 lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>33</x>
-      <y>737</y>
-      <w>66</w>
-      <h>33</h>
-    </coordinates>
-    <panel_attributes>Circle
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>55</x>
-      <y>759</y>
-      <w>33</w>
-      <h>55</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>

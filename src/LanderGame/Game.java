@@ -31,22 +31,17 @@ public class Game extends BasicGame {
 		for(int i = 0;i < planet.size();i++) {
 			planet.get(i).render(gc,g);
 		}
-
 		
 		player.render(gc,g);
-		
-		
-
-		
+	
 		g.drawString("Rotation:" + player.getRotation() + " Rad",10 , 30);
 		g.drawString("Velocity: " + player.getVelocity() + " pix/ms", 10, 60);
 		g.drawString("Thrust: " + player.getThrust() + " pix/ms", 10, 90);
-		
-		
-		g.drawLine(player.getLocation().x, 
-					player.getLocation().y, 
-					player.getLocation().x + (player.getVelocity()*getPullDirection().x*5000000),
-					player.getLocation().y + (player.getVelocity()*getPullDirection().y*5000000)
+		g.drawLine(
+				player.getCenterX(), 
+				player.getCenterY(), 
+				player.getCenterX() + (player.getVelocity()*getPullDirection().x*5000000),
+				player.getCenterY() + (player.getVelocity()*getPullDirection().y*5000000)
 		); //Gravitational direction
 		
 		
@@ -60,19 +55,15 @@ public class Game extends BasicGame {
 			Planet p = planet.get(i);
 			if (distance(p) <= p.getGravityRange()){	//If player enters gravity
 				p.color = Color.yellow;				//Colour planet yellow (for debug)
-				pull = new Vector2f (p.getPos().x-player.getLocation().x , p.getPos().y-player.getLocation().y);	// Vector between ship and planet
+				pull = new Vector2f (p.getPos().x-player.getCenterX() , p.getPos().y-player.getCenterY());	// Vector between ship and planet
 				pull.normalise();
 				pull.x *= p.gravitationalForce();			//Setting gravity force on the pull vector
 				pull.y *= p.gravitationalForce();
-				
-				
-				
+						
 				//TODO Measure velocity along vector toward planet position			
 				if(pullSpeed() < 9.82){				//If gravitational speed is below certain threshold
 					player.addForce(pull);			//Add gravity force to player
-				}
-		
-				
+				}				
 			}
 		}
 	}

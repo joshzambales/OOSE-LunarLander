@@ -7,12 +7,12 @@ import org.newdawn.slick.geom.*;
  * The player spaceship which moves around the world, in which the user controls.
  * @author Frans Larsen
  */
-public class Player extends Rectangle{
+public class Player extends Rectangle {
 	// Configuration
 	public float MAX_THRUST = 0.0025f; // Maximum allowed thrust speed (Not to be confused with velocity)
 	
 	// Properties
-	private Vector2f velocity;				// x,y ships acceleration direction
+	private Vector2f velocity;		// x,y ships acceleration direction
 	private float rotation;			// current rotation of ship
 	private float thrust;			// Force being added to the ships forward vector relative to its rotation
 	
@@ -29,16 +29,13 @@ public class Player extends Rectangle{
 	Player(Vector2f pos) {
 		super(pos.x, pos.y, 10, 10);
 		
-		x = pos.x;
-		y = pos.y;
-		
 		velocity = new Vector2f(0,0);		
 		rotation = 0;
 		thrust = 0;
 	}
 
 	/**
-	 * Updates the players position, acceleration using gameinputs
+	 * Updates the players position, acceleration using GameInputs
 	 * @param gc GameContainer 
 	 * @param delta Delta frame time
 	 * @throws SlickException throws any SlickException
@@ -47,10 +44,10 @@ public class Player extends Rectangle{
 		Input key = gc.getInput();
 		
 		if(key.isKeyDown(Input.KEY_W)) {
-			thrust += (MAX_THRUST - thrust) * 0.00001f * delta;
-		} else {
-			thrust += (0 - thrust) * 0.0001f * delta;
+			thrust += (MAX_THRUST - thrust) * 0.00025f * delta;
 		}
+		
+		thrust += (0 - thrust) * 0.01f * delta;
 		
 		if(key.isKeyDown(Input.KEY_S)) {
 			//TODO Cleanup braking
@@ -73,8 +70,8 @@ public class Player extends Rectangle{
 			//texShip.setRotation((float) Math.toDegrees(rotation));
 		}
 		
-		velocity.add(new Vector2f(thrust * (float)Math.cos(rotation),thrust * (float)Math.sin(rotation)));
-		setLocation(getLocation().add(velocity));	
+		velocity.add(new Vector2f(thrust * (float)Math.cos(rotation), thrust * (float)Math.sin(rotation)));
+		setLocation(getLocation().add(velocity));
 	}
 	
 	/**
@@ -88,11 +85,10 @@ public class Player extends Rectangle{
 		
 		// Debugging
 		g.setColor(Color.red);	
-		g.drawLine(getCenterX(), getCenterY(), x + (500 * velocity.x), y + (500 * velocity.y));
+		g.drawLine(getCenterX(), getCenterY(), getCenterX() + (500 * velocity.x), getCenterY() + (500 * velocity.y));
 		g.setColor(Color.cyan);
-		g.drawLine(getCenterX(), getCenterY(), x+(float)(20*Math.cos(rotation)), y+(float)(20*Math.sin(rotation)));
+		g.drawLine(getCenterX(), getCenterY(), getCenterX() + (float)(20*Math.cos(rotation)), getCenterY() + (float)(20*Math.sin(rotation)));
 		g.setColor(Color.white);
-		
 	}
 	
 	/**
@@ -118,7 +114,6 @@ public class Player extends Rectangle{
 	public float getThrust() {
 		return thrust;
 	}
-	
 	
 	/**
 	 * Returns the ships acceleration

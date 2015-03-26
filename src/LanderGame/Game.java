@@ -1,11 +1,12 @@
 package LanderGame;
 
+import java.util.*;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.*;
 
 public class Game extends BasicGame {
 	private Player player;
-	private Planet planet;
+	private List<Planet> planet;
 	private Vector2f pull;
 	
 	public Game(String gamename)
@@ -16,20 +17,29 @@ public class Game extends BasicGame {
 	@Override
 	public void init(GameContainer gc) throws SlickException {		
 		player = new Player(new Vector2f(gc.getWidth()/2, gc.getHeight()/2));
-		planet = new Planet (new Vector2f(200, 400), 200, 100.0f, 300.0f, 10);
+		
+		planet = new ArrayList<Planet>();
+		planet.add(new Planet (new Vector2f(200, 400), 200, 100.0f, 300.0f, 10));
+		
 		pull = new Vector2f (0,0);
 		
 	}
 
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException {
+		for(int i = 0;i < planet.size();i++) {
+			planet.get(i).render(gc,g);
+		}
+
+		
 		player.render(gc,g);
-		planet.render(gc,g);
+		
+		
+
 		
 		g.drawString("Rotation:" + player.getRotation() + " Rad",10 , 30);
 		g.drawString("Velocity: " + player.getVelocity() + " pix/ms", 10, 60);
 		g.drawString("Thrust: " + player.getThrust() + " pix/ms", 10, 90);
-		g.drawString("Distance: " + distance(), 10, 120);
 		
 		
 		g.drawLine(player.getPosition().x, 
@@ -44,35 +54,33 @@ public class Game extends BasicGame {
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
 		player.update(gc,delta);
-
-		if (distance() <= planet.getGravityRange()){	//If player enters gravity
-			planet.color = Color.yellow;				//Colour planet yellow (for debug)
-			pull = new Vector2f (planet.getPos().x-player.getPosition().x , planet.getPos().y-player.getPosition().y);	// Vector between ship and planet
-			pull.normalise();
-			pull.x *= planet.gravitationalForce();			//Setting gravity force on the pull vector
-			pull.y *= planet.gravitationalForce();
-			
-			
-			
-			//TODO Measure velocity along vector toward planet position			
-			if(pullSpeed() < 9.82){				//If gravitational speed is below certain threshold
-				player.addForce(pull);			//Add gravity force to player
-			}
-	
-			
-		}
 		
-		if (player.intersects(planet)){
-			
+		for(int i = 0;i < planet.size();i++) {
+			Planet p = planet.get(i);
+			if (distance(p) <= p.getGravityRange()){	//If player enters gravity
+				p.color = Color.yellow;				//Colour planet yellow (for debug)
+				pull = new Vector2f (p.getPos().x-player.getPosition().x , p.getPos().y-player.getPosition().y);	// Vector between ship and planet
+				pull.normalise();
+				pull.x *= p.gravitationalForce();			//Setting gravity force on the pull vector
+				pull.y *= p.gravitationalForce();
+				
+				
+				
+				//TODO Measure velocity along vector toward planet position			
+				if(pullSpeed() < 9.82){				//If gravitational speed is below certain threshold
+					player.addForce(pull);			//Add gravity force to player
+				}
+		
+				
+			}
 		}
-
 	}
 	
 
-	public float distance() {
+	public float distance(Planet p) {
 		double x, y;
-		x = Math.pow((planet.getPos().x - player.getPosition().x), 2);
-		y = Math.pow((planet.getPos().y - player.getPosition().y), 2);
+		x = Math.pow((p.getPos().x - player.getPosition().x), 2);
+		y = Math.pow((p.getPos().y - player.getPosition().y), 2);
 		return (float) Math.sqrt(x+y);
 	}
 	

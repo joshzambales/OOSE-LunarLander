@@ -43,10 +43,10 @@ public class Game extends BasicGame {
 		g.drawString("Thrust: " + player.getThrust() + " pix/ms", 10, 90);
 		
 		
-		g.drawLine(player.getPosition().x, 
-					player.getPosition().y, 
-					player.getPosition().x + (player.getVelocity()*getPullDirection().x*5000000),
-					player.getPosition().y + (player.getVelocity()*getPullDirection().y*5000000)
+		g.drawLine(player.getLocation().x, 
+					player.getLocation().y, 
+					player.getLocation().x + (player.getVelocity()*getPullDirection().x*5000000),
+					player.getLocation().y + (player.getVelocity()*getPullDirection().y*5000000)
 		); //Gravitational direction
 		
 		
@@ -60,7 +60,7 @@ public class Game extends BasicGame {
 			Planet p = planet.get(i);
 			if (distance(p) <= p.getGravityRange()){	//If player enters gravity
 				p.color = Color.yellow;				//Colour planet yellow (for debug)
-				pull = new Vector2f (p.getPos().x-player.getPosition().x , p.getPos().y-player.getPosition().y);	// Vector between ship and planet
+				pull = new Vector2f (p.getPos().x-player.getLocation().x , p.getPos().y-player.getLocation().y);	// Vector between ship and planet
 				pull.normalise();
 				pull.x *= p.gravitationalForce();			//Setting gravity force on the pull vector
 				pull.y *= p.gravitationalForce();
@@ -80,8 +80,8 @@ public class Game extends BasicGame {
 
 	public float distance(Planet p) {
 		double x, y;
-		x = Math.pow((p.getPos().x - player.getPosition().x), 2);
-		y = Math.pow((p.getPos().y - player.getPosition().y), 2);
+		x = Math.pow((p.getPos().x - player.getLocation().x), 2);
+		y = Math.pow((p.getPos().y - player.getLocation().y), 2);
 		return (float) Math.sqrt(x+y);
 	}
 	
@@ -93,8 +93,8 @@ public class Game extends BasicGame {
 		//TODO Get velocity toward planet (along getPullDirection) - Is now a constant based on gravitationalForce
 		
 		Vector2f direction = new Vector2f();
-		float x = player.getPosition().x; 
-		float y = player.getPosition().y;
+		float x = player.getLocation().x; 
+		float y = player.getLocation().y;
 		//direction = (x, y, planet.getPos().x,planet.getPos().y);
 		
 		return (float) Math.sqrt(Math.pow(getPullDirection().x, 2) + Math.pow(getPullDirection().y, 2));

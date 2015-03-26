@@ -12,8 +12,7 @@ public class Player extends Rectangle{
 	public float MAX_THRUST = 0.0025f; // Maximum allowed thrust speed (Not to be confused with velocity)
 	
 	// Properties
-	private Vector2f position;		// x,y ships position in space
-	 Vector2f velocity;		// x,y ships acceleration direction
+	private Vector2f velocity;				// x,y ships acceleration direction
 	private float rotation;			// current rotation of ship
 	private float thrust;			// Force being added to the ships forward vector relative to its rotation
 	
@@ -30,7 +29,9 @@ public class Player extends Rectangle{
 	Player(Vector2f pos) {
 		super(pos.x, pos.y, 10, 10);
 		
-		position = pos;
+		x = pos.x;
+		y = pos.y;
+		
 		velocity = new Vector2f(0,0);		
 		rotation = 0;
 		thrust = 0;
@@ -46,9 +47,9 @@ public class Player extends Rectangle{
 		Input key = gc.getInput();
 		
 		if(key.isKeyDown(Input.KEY_W)) {
-			thrust += (MAX_THRUST - thrust) * 0.0001 * delta;
+			thrust += (MAX_THRUST - thrust) * 0.00001f * delta;
 		} else {
-			thrust += (0 - thrust) * 0.01f * delta;
+			thrust += (0 - thrust) * 0.0001f * delta;
 		}
 		
 		if(key.isKeyDown(Input.KEY_S)) {
@@ -72,11 +73,8 @@ public class Player extends Rectangle{
 			//texShip.setRotation((float) Math.toDegrees(rotation));
 		}
 		
-		//TODO Add de-acceleration from UNKNOWN FORCES FROM SPACE
-		
 		velocity.add(new Vector2f(thrust * (float)Math.cos(rotation),thrust * (float)Math.sin(rotation)));
-		position.add(velocity);
-		
+		setLocation(getLocation().add(velocity));	
 	}
 	
 	/**
@@ -86,13 +84,13 @@ public class Player extends Rectangle{
 	 * @throws SlickException throws any SlickException
 	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		g.drawRect(position.x-5, position.y-5, 10, 10);
+		g.draw(this);
 		
 		// Debugging
 		g.setColor(Color.red);	
-		g.drawLine(position.x, position.y, position.x + (500 * velocity.x), position.y + (500 * velocity.y));
+		g.drawLine(getCenterX(), getCenterY(), x + (500 * velocity.x), y + (500 * velocity.y));
 		g.setColor(Color.cyan);
-		g.drawLine(position.x, position.y, position.x+(float)(20*Math.cos(rotation)), position.y+(float)(20*Math.sin(rotation)));
+		g.drawLine(getCenterX(), getCenterY(), x+(float)(20*Math.cos(rotation)), y+(float)(20*Math.sin(rotation)));
 		g.setColor(Color.white);
 		
 	}
@@ -119,10 +117,6 @@ public class Player extends Rectangle{
 	 */
 	public float getThrust() {
 		return thrust;
-	}
-	
-	public Vector2f getPosition(){
-		return position;
 	}
 	
 	

@@ -20,6 +20,7 @@ public class Game extends BasicGame {
 		
 		planet = new ArrayList<Planet>();
 		planet.add(new Planet (new Vector2f(200, 400), 200, 100.0f, 300.0f, 10));
+		planet.add(new Planet (new Vector2f(1000, 400), 200, 100.0f, 300.0f, 10));
 		
 		pull = new Vector2f (0,0);
 		
